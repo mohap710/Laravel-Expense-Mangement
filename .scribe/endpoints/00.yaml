@@ -1,0 +1,391 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/expenses
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get all expenses'
+      description: |-
+        This endpoint retrieves a list of expenses.
+        You can filter the expenses by category or a date range.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      category:
+        name: category
+        description: 'Filter expenses by a specific category. Must be one of: Groceries, Transportation, Health.'
+        required: false
+        example: Health
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      start_date:
+        name: start_date
+        description: 'date Filter expenses from this date (inclusive). Format: YYYY-MM-DD.'
+        required: false
+        example: '2025-01-01'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      end_date:
+        name: end_date
+        description: 'date Filter expenses up to this date (inclusive). Format: YYYY-MM-DD.'
+        required: false
+        example: '2025-01-31'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      category: Health
+      start_date: '2025-01-01'
+      end_date: '2025-01-31'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":"0197ef08-5dbf-7345-8cf8-795efabe33e2","title":"Laboriosam enim reiciendis corporis eaque ab.","amount":111377.91,"category":"Health","expense_date":"2025-09-23","notes":"Sunt aut illo voluptatem aliquid fuga neque nulla. Distinctio inventore quasi repellat sed minus quibusdam quo. Minima provident consequatur sit unde nisi sequi ut debitis.","created_at":"2025-07-09 11:53:12"},{"id":"0197ef08-5dd1-726e-8e46-6bf9dd9dec99","title":"Et nihil aut amet quos voluptate consectetur ut.","amount":292449.16,"category":"Groceries","expense_date":"2025-08-31","notes":null,"created_at":"2025-07-09 11:53:12"}]}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/expenses
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a new expense'
+      description: 'This endpoint allows you to create a new expense record.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'The title of the expense. Must not be greater than 255 characters.'
+        required: true
+        example: 'Monthly Subscription'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      amount:
+        name: amount
+        description: 'The amount of the expense. Must be a numeric value between 1.00 and 999999.99. Must be at least 1. Must not be greater than 999999.99.'
+        required: true
+        example: 29.99
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      category:
+        name: category
+        description: 'The category of the expense. Must be one of: Groceries, Transportation, Health.'
+        required: true
+        example: Transportation
+        type: string
+        enumValues:
+          - Groceries
+          - Transportation
+          - Health
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      expense_date:
+        name: expense_date
+        description: 'The date the expense occurred. Format: YYYY-MM-DD. Must be a valid date.'
+        required: true
+        example: '2025-07-15'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      notes:
+        name: notes
+        description: 'Any additional notes or details for the expense (optional). Must not be greater than 1000 characters.'
+        required: false
+        example: 'Subscription for streaming service.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      title: 'Monthly Subscription'
+      amount: 29.99
+      category: Transportation
+      expense_date: '2025-07-15'
+      notes: 'Subscription for streaming service.'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"0197ef08-5df8-71b7-bafd-02db75d3efac","title":"Dolores dolorum amet iste laborum eius est dolor.","amount":135791.71,"category":"Health","expense_date":"2025-09-02","notes":null,"created_at":"2025-07-09 11:53:12"}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/expenses/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a specific expense'
+      description: 'This endpoint retrieves the details of a single expense by its ID.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The UUID of the expense.'
+        required: true
+        example: 123e4567-e89b-12d3-a456-426614174000
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 123e4567-e89b-12d3-a456-426614174000
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: 'scenarios="Success" {"success": true, "data": {"id": "123e4567-e89b-12d3-a456-426614174000", "title": "Electricity Bill", "amount": 75.50, "category": "Utilities", "expense_date": "2025-06-20", "notes": "Monthly electricity payment", "created_at": "2025-06-15 08:00:00"}, "message": "Expense Loaded successfully."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: 'scenarios="Not Found" {"success": false, "data": null, "message": "Expense not found."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/expenses/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update a new expense'
+      description: 'This endpoint allows you to update an existing expense record.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the expense.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The id of the expense to be updated. The <code>id</code> of an existing record in the expenses table.'
+        required: true
+        example: 0197e96e-2e7d-7035-b741-dd3d0551b675
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      title:
+        name: title
+        description: 'The title of the expense. Must not be greater than 255 characters.'
+        required: false
+        example: 'Monthly Subscription'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      amount:
+        name: amount
+        description: 'The amount of the expense. Must be a numeric value between 1.00 and 999999.99. Must be at least 1.00. Must not be greater than 999999.99.'
+        required: false
+        example: 29.99
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      category:
+        name: category
+        description: 'The category of the expense. Must be one of: Groceries, Transportation, Health.'
+        required: false
+        example: Transportation
+        type: string
+        enumValues:
+          - Groceries
+          - Transportation
+          - Health
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      expense_date:
+        name: expense_date
+        description: 'The date the expense occurred. Format: YYYY-MM-DD. Must be a valid date.'
+        required: false
+        example: '2025-07-15'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      notes:
+        name: notes
+        description: 'Any additional notes or details for the expense (optional). Must not be greater than 1000 characters.'
+        required: false
+        example: 'Subscription for streaming service.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      id: 0197e96e-2e7d-7035-b741-dd3d0551b675
+      title: 'Monthly Subscription'
+      amount: 29.99
+      category: Transportation
+      expense_date: '2025-07-15'
+      notes: 'Subscription for streaming service.'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"0197ef08-5e06-719c-bcb1-7aa268516122","title":"Dolores dolorum amet iste laborum eius est dolor.","amount":135791.71,"category":"Health","expense_date":"2025-09-02","notes":null,"created_at":"2025-07-09 11:53:12"}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/expenses/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete an expense'
+      description: 'This endpoint deletes a specific expense record by its ID.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The UUID of the expense to delete.'
+        required: true
+        example: 123e4567-e89b-12d3-a456-426614174000
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 123e4567-e89b-12d3-a456-426614174000
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: 'scenarios="Expense Deleted" {"success" => true,"message" => "Expense deleted successfully","code" => 200}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: 'scenarios="Not Found" {"success": false, "data": null, "message": "Expense not found."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

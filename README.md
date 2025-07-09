@@ -28,7 +28,7 @@ Follow these steps to get the project up and running on your local machine.
 1.  **Clone the repository:**
 
     ```bash
-    git https://github.com/mohap710/Laravel-Expense-Mangement.git
+    git clone https://github.com/mohap710/Laravel-Expense-Mangement.git
     cd Laravel-Expense-Mangement
     ```
 
@@ -77,16 +77,7 @@ Follow these steps to get the project up and running on your local machine.
     ```bash
     php artisan migrate
     ```
-
-7.  **Start the Laravel Development Server:**
-
-    ```bash
-    php artisan serve
-    ```
-
-    Your application will be accessible at `http://127.0.0.1:8000`.
-
-8.  **Generate API Documentation:**
+7.  **Generate API Documentation:**
     This will create the HTML documentation in `public/docs` and OpenAPI JSON in `storage/docs`.
 
     ```bash
@@ -94,6 +85,16 @@ Follow these steps to get the project up and running on your local machine.
     ```
 
     You can then view the documentation by visiting `http://127.0.0.1:8000/docs` in your browser.
+
+8.  **Start the Laravel Development Server:**
+
+    ```bash
+    php artisan serve
+    ```
+
+    Your application will be accessible at `http://127.0.0.1:8000`.
+
+
 
 ---
 

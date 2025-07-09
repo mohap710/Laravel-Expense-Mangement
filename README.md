@@ -28,7 +28,7 @@ Follow these steps to get the project up and running on your local machine.
 1.  **Clone the repository:**
 
     ```bash
-    git https://github.com/mohap710/Laravel-Expense-Mangement.git
+    git clone https://github.com/mohap710/Laravel-Expense-Mangement.git
     cd Laravel-Expense-Mangement
     ```
 
